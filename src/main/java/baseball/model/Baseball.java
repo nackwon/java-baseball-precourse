@@ -1,37 +1,30 @@
 package baseball.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Baseball {
 
-    /**
-     * 숫자를 List 에 담아서 리턴 Method
-     * @param inputNumbers
+    private static final int RANGE_MAX_NUMBER = 9;
+    private static final int RANGE_MIN_NUMBER = 0;
+    private static final int MAX_RANGE_LENGTH = 3;
+
+    /**********************
+     * 컴퓨터 랜덤 숫자 메소드
      * @return
-     */
-    public static List<Integer> convertList(String inputNumbers) {
+     **********************/
+    public String computerRandomNumbers() {
 
-        List<Integer> listNumbers = new ArrayList<>();
+        String sRandomNumbers = "";
 
-        for(String number : inputNumbers.split("")) {
-            listNumbers.add(Integer.parseInt(number));
+        while(sRandomNumbers.length() < MAX_RANGE_LENGTH) {
+            int intNumber = Randoms.pickNumberInRange(RANGE_MIN_NUMBER, RANGE_MAX_NUMBER);
+
+            if(!sRandomNumbers.contains(String.valueOf(intNumber))) {
+                sRandomNumbers += String.valueOf(intNumber);
+            }
         }
 
-        return listNumbers;
+        return sRandomNumbers;
     }
 
-    /**
-     * Game Restart Method
-     */
-    public void gameRestart() {
-
-    }
-
-    /**
-     * Game Over Method
-     */
-    public void gameOver() {
-
-    }
 }
