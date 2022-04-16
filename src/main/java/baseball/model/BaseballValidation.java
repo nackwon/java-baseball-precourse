@@ -80,7 +80,7 @@ public class BaseballValidation {
 
         int intSize = arrNumbers.length;
 
-        for (int i=0; i<intSize; ++i) {
+        for (int i=0; i<intSize-1; ++i) {
             if(arrNumbers[i].equals(arrNumbers[i+1])) {
                 return true;
             }
