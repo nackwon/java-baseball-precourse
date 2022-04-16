@@ -29,10 +29,8 @@ public class BaseballStrikeAndBallCount {
             }
 
             // 나중에 수정 필요
-            if(isCheckCount) {
-                if(isCheckBall(computerNumberList, intUserNumber)) {
-                    ballCount++;
-                }
+            if(isCheckCount && isCheckBall(computerNumberList, intUserNumber)) {
+                ballCount++;
             }
         }
 
