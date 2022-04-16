@@ -14,20 +14,19 @@ public class BaseballOutputView {
      * @param ballCount : 볼 갯수
      * @return
      */
-    public static String resultStrikeAndBallCount(int strikeCount, int ballCount) {
+    public static void resultStrikeAndBallCount(int strikeCount, int ballCount) {
 
         if(strikeCount != 0 && ballCount != 0) {
-            return strikeCount + BASEBALL_STRIKE + ballCount + BASEBALL_BALL;
+            System.out.println( strikeCount + BASEBALL_STRIKE + ballCount + BASEBALL_BALL);
         }
 
         if(strikeCount != 0) {
-            return strikeCount + BASEBALL_STRIKE;
+            System.out.println(strikeCount + BASEBALL_STRIKE);
         }
 
         if(ballCount != 0) {
-            return ballCount + BASEBALL_BALL;
+            System.out.println(ballCount + BASEBALL_BALL);
         }
-        return null;
     }
 
     /********************
