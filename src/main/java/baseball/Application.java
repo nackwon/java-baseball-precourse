@@ -6,9 +6,7 @@ import baseball.model.BaseballValidation;
 import baseball.model.baseballCommonUtil;
 import baseball.view.BaseballInputView;
 import baseball.view.BaseballOutputView;
-import org.junit.jupiter.params.ParameterizedTest;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -31,7 +29,7 @@ public class Application {
         int strikeCount = (int) mpBallCount.get("strike");
         int ballCount = (int) mpBallCount.get("ball");
 
-        if (0 != strikeCount || 0 != ballCount) {
+        if (0 != strikeCount && 0 != ballCount) {
             BaseballOutputView.resultStrikeAndBallCount((int) mpBallCount.get("strike"), (int) mpBallCount.get("ball"));
             baseballGameStarter(computerNumberList);
         }
