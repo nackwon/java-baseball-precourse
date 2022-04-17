@@ -18,14 +18,17 @@ public class BaseballOutputView {
 
         if(strikeCount != 0 && ballCount != 0) {
             System.out.println( strikeCount + BASEBALL_STRIKE + ballCount + BASEBALL_BALL);
+            return;
         }
 
         if(strikeCount != 0) {
             System.out.println(strikeCount + BASEBALL_STRIKE);
+            return;
         }
 
         if(ballCount != 0) {
             System.out.println(ballCount + BASEBALL_BALL);
+            return;
         }
     }
 
