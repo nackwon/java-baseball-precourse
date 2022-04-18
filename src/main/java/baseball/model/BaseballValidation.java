@@ -29,7 +29,7 @@ public class BaseballValidation {
             return false;
         }
 
-        if(isCheckDuplicateNumbers(inputNumber)) {
+        if(!isCheckDuplicateNumbers(inputNumber)) {
             return false;
         }
         return true;
