@@ -25,7 +25,7 @@ public class BaseballValidation {
             return false;
         }
 
-        if(isCheckZeroNumber(inputNumber)) {
+        if(!isCheckZeroNumber(inputNumber)) {
             return false;
         }
 
@@ -52,7 +52,7 @@ public class BaseballValidation {
      * @return
      */
     public static boolean isCheckZeroNumber(String inputNumber) {
-        return inputNumber.contains(INPUT_NUMBER_ZERO);
+        return !inputNumber.contains(INPUT_NUMBER_ZERO);
     }
 
     /**
