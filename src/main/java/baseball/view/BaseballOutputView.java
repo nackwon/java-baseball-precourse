@@ -4,8 +4,9 @@ public class BaseballOutputView {
 
     private static String BASEBALL_STRIKE = "스트라이크";
     private static String BASEBALL_BALL = "볼";
-    private static String BASEBALL_NOTHING = "낫씽";
+    private static String BASEBALL_NOTHING = "낫싱";
     private static String BASEBALL_RESULT = "3개의 숫자를 모두 맞히셨습니다! 게임 종료";
+    private static String BASEBALL_GAME_OVER = "게임 종료";
 
 
     /**
@@ -17,7 +18,7 @@ public class BaseballOutputView {
     public static void resultStrikeAndBallCount(int strikeCount, int ballCount) {
 
         if(strikeCount != 0 && ballCount != 0) {
-            System.out.println( strikeCount + BASEBALL_STRIKE + ballCount + BASEBALL_BALL);
+            System.out.println(ballCount + BASEBALL_BALL + " " + strikeCount + BASEBALL_STRIKE);
             return;
         }
 
@@ -44,5 +45,12 @@ public class BaseballOutputView {
      *******************/
     public static void nothingMSG() {
         System.out.println(BASEBALL_NOTHING);
+    }
+
+    /********************
+     * 게임 종료
+     *******************/
+    public static void gameOver() {
+        System.out.println(BASEBALL_GAME_OVER);
     }
 }
