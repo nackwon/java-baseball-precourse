@@ -5,7 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Baseball {
 
     private static final int RANGE_MAX_NUMBER = 9;
-    private static final int RANGE_MIN_NUMBER = 0;
+    private static final int RANGE_MIN_NUMBER = 1;
     private static final int MAX_RANGE_LENGTH = 3;
 
     /**********************
