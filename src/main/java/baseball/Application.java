@@ -11,12 +11,14 @@ import java.util.List;
 import java.util.Map;
 
 public class Application {
+
     public static void main(String[] args) {
         // TODO: 프로그램
 
-        List<Integer> computerNumberList = computerUser();
-
-        baseballGameStarter(computerNumberList);
+        do {
+            List<Integer> computerNumberList = computerUser();
+            baseballGameStarter(computerNumberList);
+        } while (gameRestart());
     }
 
     public static void baseballGameStarter(List<Integer> computerNumberList) {
@@ -29,38 +31,43 @@ public class Application {
         int strikeCount = (int) mpBallCount.get("strike");
         int ballCount = (int) mpBallCount.get("ball");
 
-        if (0 != strikeCount && 0 != ballCount) {
-            BaseballOutputView.resultStrikeAndBallCount((int) mpBallCount.get("strike"), (int) mpBallCount.get("ball"));
-            baseballGameStarter(computerNumberList);
-        }
         if ( 0 == strikeCount && 0 == ballCount) {
             BaseballOutputView.nothingMSG();
             baseballGameStarter(computerNumberList);
+            return;
         }
+
         if (3 == strikeCount) {
+            BaseballOutputView.resultStrikeAndBallCount(strikeCount, ballCount);
             BaseballOutputView.winningMSG();
-            application.gameRestart();
+            return;
+        }
+
+        if( 0 != strikeCount || 0 != ballCount) {
+            BaseballOutputView.resultStrikeAndBallCount(strikeCount, ballCount);
+            baseballGameStarter(computerNumberList);
+            return;
         }
     }
 
     public Map baseballGameRule(List<Integer> inputUserNumberList, List<Integer> computerUserNumberList) {
-
         BaseballStrikeAndBallCount strikeAndBallCount = new BaseballStrikeAndBallCount();
-
         return strikeAndBallCount.countBallCount(inputUserNumberList, computerUserNumberList);
     }
 
-    public void gameRestart() {
+    public static boolean gameRestart() {
 
-        // 재시작
+        final int NEW_GAME_CODE = 1;
+        final int QUIT_CODE = 2;
+        final String ERROR_MSG = "잘못된 입력입니다.";
+
         String sRestartCode = BaseballInputView.restartGame();
 
-        if ("1".equals(sRestartCode)) {
-            BaseballInputView.userInputNumbers();
+        if (Integer.parseInt(sRestartCode) != NEW_GAME_CODE && Integer.parseInt(sRestartCode) != QUIT_CODE) {
+            throw new IllegalArgumentException(ERROR_MSG);
         }
-        if("2".equals(sRestartCode)) {
-            return;
-        }
+
+        return Integer.parseInt(sRestartCode) == NEW_GAME_CODE;
     }
 
     /**
