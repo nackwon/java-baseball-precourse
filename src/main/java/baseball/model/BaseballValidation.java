@@ -2,7 +2,8 @@ package baseball.model;
 
 public class BaseballValidation {
 
-    private static int MAX_INPUT_NUMBER_LENGTH = 3;
+    private final static int MAX_INPUT_NUMBER_LENGTH = 3;
+    private final static String INPUT_NUMBER_ZERO = "0";
 
 
     /**
@@ -47,7 +48,7 @@ public class BaseballValidation {
      * @return
      */
     public static boolean isCheckZeroNumber(String inputNumber) {
-        return inputNumber.contains("0");
+        return inputNumber.contains(INPUT_NUMBER_ZERO);
     }
 
     /**
