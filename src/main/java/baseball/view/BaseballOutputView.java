@@ -46,11 +46,4 @@ public class BaseballOutputView {
     public static void nothingMSG() {
         System.out.println(BASEBALL_NOTHING);
     }
-
-    /********************
-     * 게임 종료
-     *******************/
-    public static void gameOver() {
-        System.out.println(BASEBALL_GAME_OVER);
-    }
 }
