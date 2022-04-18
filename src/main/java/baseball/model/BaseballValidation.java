@@ -1,5 +1,9 @@
 package baseball.model;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 public class BaseballValidation {
 
     private final static int MAX_INPUT_NUMBER_LENGTH = 3;
@@ -77,15 +81,8 @@ public class BaseballValidation {
      */
     public static boolean isCheckDuplicateNumbers(String inputNumber) {
 
-        String[] arrNumbers = inputNumber.split("");
+        Set<String> setNumbers = new HashSet<String>(Arrays.asList(inputNumber.split("")));
 
-        int intSize = arrNumbers.length;
-
-        for (int i=0; i<intSize-1; ++i) {
-            if(arrNumbers[i].equals(arrNumbers[i+1])) {
-                return true;
-            }
-        }
-        return false;
+        return setNumbers.size() == inputNumber.length();
     }
 }
