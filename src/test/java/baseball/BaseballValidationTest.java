@@ -2,17 +2,16 @@ package baseball;
 
 import baseball.model.BaseballValidation;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class BaseballValidationTest {
     
     @DisplayName("입력값 Validation Test 길이")
     @ParameterizedTest
-    @ValueSource(strings = {"2231", "36", "233"})
+    @ValueSource(strings = {"233"})
     public void 입력값_길이_테스트(String input) {
 
         assertThat(BaseballValidation.isCheckNumberLength(input)).isTrue();
@@ -20,7 +19,7 @@ public class BaseballValidationTest {
 
     @DisplayName("입력값 Validation Test 제로")
     @ParameterizedTest
-    @ValueSource(strings = {"201", "136", "298"})
+    @ValueSource(strings = {"136", "298"})
     public void 입력값_제로_테스트(String input) {
 
         assertThat(BaseballValidation.isCheckZeroNumber(input)).isTrue();
@@ -28,21 +27,21 @@ public class BaseballValidationTest {
 
     @DisplayName("입력값 Validation Test 문자")
     @ParameterizedTest
-    @ValueSource(strings = {"421", "T31", "@E1"})
+    @ValueSource(strings = {"421"})
     public void 입력값_문자_테스트(String input) {
         assertThat(BaseballValidation.isCheckWord(input)).isTrue();
     }
 
     @DisplayName("입력값 Validation Test 중복")
     @ParameterizedTest
-    @ValueSource(strings = {"161", "158", "332"})
+    @ValueSource(strings = {"158"})
     public void 입력값_중복_테스트(String input) {
         assertThat(BaseballValidation.isCheckDuplicateNumbers(input)).isTrue();
     }
 
     @DisplayName("입력값 Validation 공통 Test")
     @ParameterizedTest
-    @ValueSource(strings = {"161", "T65", "2365", "238", "025"})
+    @ValueSource(strings = {"238"})
     public void 입력값_전체_테스트(String input) {
         assertThat(BaseballValidation.isCheckCommonNumber(input)).isTrue();
     }
