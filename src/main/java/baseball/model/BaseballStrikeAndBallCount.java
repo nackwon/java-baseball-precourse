@@ -1,8 +1,6 @@
 package baseball.model;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class BaseballStrikeAndBallCount {
 
@@ -26,6 +24,7 @@ public class BaseballStrikeAndBallCount {
 
     /**
      * Ball Count 구하는 Method
+     * 위치 상관없이 같은 수의 갯수를 구함
      * @param userNumberList
      * @param computerNumberList
      */
