@@ -9,35 +9,35 @@ public class BaseballStrikeAndBallCount {
     private static final int MAX_RANGE_LENGTH = 3;
 
     /**
-     * Strike Count , Ball Count 구하는 Method
+     * Strike Count 구하는 Method
      * @param userNumberList
      * @param computerNumberList
      */
-    public Map countBallCount(List<Integer> userNumberList, List<Integer> computerNumberList) {
+    public int countStrike(List<Integer> userNumberList, List<Integer> computerNumberList) {
+        int intStrikeCount = 0;
 
-        Map mpResult = new HashMap();
-
-        int strikeCount = 0;
-        int ballCount = 0;
         for (int i=0; i<MAX_RANGE_LENGTH; ++i) {
-
-            boolean isCheckCount = true;
-            int intUserNumber = userNumberList.get(i);
-            if(isCheckStrike(computerNumberList, i, intUserNumber)) {
-                strikeCount++;
-                isCheckCount = false;
-            }
-
-            // 나중에 수정 필요
-            if(isCheckCount && isCheckBall(computerNumberList, intUserNumber)) {
-                ballCount++;
+            if(isCheckStrike(computerNumberList, i, userNumberList.get(i))) {
+                intStrikeCount++;
             }
         }
+        return intStrikeCount;
+    }
 
-        mpResult.put("strike", strikeCount);
-        mpResult.put("ball", ballCount);
+    /**
+     * Ball Count 구하는 Method
+     * @param userNumberList
+     * @param computerNumberList
+     */
+    public int countBall(List<Integer> userNumberList, List<Integer> computerNumberList) {
 
-        return mpResult;
+        int intBallCount = 0;
+        for (int i=0; i<MAX_RANGE_LENGTH; ++i) {
+            if(isCheckBall(computerNumberList, userNumberList.get(i))) {
+                intBallCount++;
+            }
+        }
+        return intBallCount;
     }
 
     /**
