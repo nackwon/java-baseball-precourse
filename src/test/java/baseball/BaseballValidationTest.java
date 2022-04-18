@@ -40,7 +40,7 @@ public class BaseballValidationTest {
         assertThat(BaseballValidation.isCheckDuplicateNumbers(input)).isTrue();
     }
 
-    @DisplayName("입력값 Validation Test 중복")
+    @DisplayName("입력값 Validation 공통 Test")
     @ParameterizedTest
     @ValueSource(strings = {"161", "T65", "2365", "238", "025"})
     public void 입력값_전체_테스트(String input) {
