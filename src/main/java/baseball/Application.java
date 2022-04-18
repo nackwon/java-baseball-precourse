@@ -12,6 +12,8 @@ import java.util.Map;
 
 public class Application {
 
+    private static final String ERROR_MSG = "입력 오류";
+
     public static void main(String[] args) {
         // TODO: 프로그램
 
@@ -59,7 +61,6 @@ public class Application {
 
         final int NEW_GAME_CODE = 1;
         final int QUIT_CODE = 2;
-        final String ERROR_MSG = "잘못된 입력입니다.";
 
         String sRestartCode = BaseballInputView.restartGame();
 
@@ -78,10 +79,10 @@ public class Application {
         Baseball baseball = new Baseball();
 
         String sComputerNumbers = baseball.computerRandomNumbers();
-        if (BaseballValidation.isCheckCommonNumber(sComputerNumbers)) {
-            return baseballCommonUtil.convertList(sComputerNumbers);
+        if (!BaseballValidation.isCheckCommonNumber(sComputerNumbers)) {
+            throw new IllegalArgumentException(ERROR_MSG);
         }
-        return null;
+        return baseballCommonUtil.convertList(sComputerNumbers);
     }
 
     /**
@@ -91,9 +92,9 @@ public class Application {
     public List<Integer> inputUser() {
         String sInputNumber = BaseballInputView.userInputNumbers();
 
-        if (BaseballValidation.isCheckCommonNumber(sInputNumber)) {
-            return baseballCommonUtil.convertList(sInputNumber);
+        if (!BaseballValidation.isCheckCommonNumber(sInputNumber)) {
+            throw new IllegalArgumentException(ERROR_MSG);
         }
-        return null;
+        return baseballCommonUtil.convertList(sInputNumber);
     }
 }
