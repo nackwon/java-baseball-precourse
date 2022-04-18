@@ -8,7 +8,6 @@ import baseball.view.BaseballInputView;
 import baseball.view.BaseballOutputView;
 
 import java.util.List;
-import java.util.Map;
 
 public class Application {
 
@@ -19,7 +18,6 @@ public class Application {
 
         do {
             List<Integer> computerNumberList = computerUser();
-            System.out.println(computerNumberList);
             baseballGameStarter(computerNumberList);
         } while (gameRestart());
     }
