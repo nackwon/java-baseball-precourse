@@ -1,9 +1,6 @@
 package baseball;
 
-import baseball.model.Baseball;
-import baseball.model.BaseballStrikeAndBallCount;
-import baseball.model.BaseballValidation;
-import baseball.model.baseballCommonUtil;
+import baseball.model.*;
 import baseball.view.BaseballInputView;
 import baseball.view.BaseballOutputView;
 
@@ -79,30 +76,20 @@ public class Application {
         return Integer.parseInt(sRestartCode) == NEW_GAME_CODE;
     }
 
-    /**
-     * Computer Random Number Logic
-     * @return
-     */
     public static List<Integer> computerUser() {
         Baseball baseball = new Baseball();
-
         String sComputerNumbers = baseball.computerRandomNumbers();
-        if (!BaseballValidation.isCheckCommonNumber(sComputerNumbers)) {
-            throw new IllegalArgumentException(ERROR_MSG);
-        }
-        return baseballCommonUtil.convertList(sComputerNumbers);
+
+        BaseballGameUser gameUser = new BaseballGameUser(sComputerNumbers);
+
+        return gameUser.userNumberConvertList();
     }
 
-    /**
-     * User input Number Logic
-     * @return
-     */
     public List<Integer> inputUser() {
         String sInputNumber = BaseballInputView.userInputNumbers();
 
-        if (!BaseballValidation.isCheckCommonNumber(sInputNumber)) {
-            throw new IllegalArgumentException(ERROR_MSG);
-        }
-        return baseballCommonUtil.convertList(sInputNumber);
+        BaseballGameUser gameUser = new BaseballGameUser(sInputNumber);
+
+        return gameUser.userNumberConvertList();
     }
 }
