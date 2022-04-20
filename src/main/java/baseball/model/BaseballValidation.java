@@ -9,27 +9,6 @@ public class BaseballValidation {
     private final static int MAX_INPUT_NUMBER_LENGTH = 3;
     private final static String INPUT_NUMBER_ZERO = "0";
 
-
-    /*public static boolean isCheckCommonNumber(String inputNumber) {
-
-        if (!isCheckWord(inputNumber)) {
-            return false;
-        }
-
-        if(!isCheckNumberLength(inputNumber)) {
-            return false;
-        }
-
-        if(!isCheckZeroNumber(inputNumber)) {
-            return false;
-        }
-
-        if(!isCheckDuplicateNumbers(inputNumber)) {
-            return false;
-        }
-        return true;
-    } */
-
     public static void isCheckCommonNumber(String inputNumber) {
         if (!isCheckWord(inputNumber)) {
             throw new IllegalArgumentException("숫자가 아닌 문자가 존재합니다.");
