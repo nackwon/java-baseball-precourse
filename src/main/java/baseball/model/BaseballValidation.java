@@ -10,12 +10,7 @@ public class BaseballValidation {
     private final static String INPUT_NUMBER_ZERO = "0";
 
 
-    /**
-     * 사용자 입력 시 입력 값 관련 Validation 체크
-     * @param inputNumber
-     * @return
-     */
-    public static boolean isCheckCommonNumber(String inputNumber) {
+    /*public static boolean isCheckCommonNumber(String inputNumber) {
 
         if (!isCheckWord(inputNumber)) {
             return false;
@@ -33,6 +28,24 @@ public class BaseballValidation {
             return false;
         }
         return true;
+    } */
+
+    public static void isCheckCommonNumber(String inputNumber) {
+        if (!isCheckWord(inputNumber)) {
+            throw new IllegalArgumentException("숫자가 아닌 문자가 존재합니다.");
+        }
+
+        if(!isCheckNumberLength(inputNumber)) {
+            throw new IllegalArgumentException("3자리가 숫자가 아닙니다.");
+        }
+
+        if(!isCheckZeroNumber(inputNumber)) {
+            throw new IllegalArgumentException("숫자 중 0이 포함되어 있습니다.");
+        }
+
+        if(!isCheckDuplicateNumbers(inputNumber)) {
+            throw new IllegalArgumentException("중복된 데이터가 존재합니다.");
+        }
     }
 
     /**
